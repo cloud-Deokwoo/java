@@ -125,34 +125,28 @@ public class CustomerManager {
 	//현재 고객 정보 출력 
 	public static void printCustomerData(int index) {
 		System.out.println("==========CUSTOMER INFO===============");
-		System.out.println("이름 : "+nameList[index]);
-		System.out.println("성별 : "+genderList[index]);
-		System.out.println("이메일 : "+emailList[index]);
-		System.out.println("출생년도 : "+birthYearList[index]);
+		System.out.println("이름 : "+cusList[index].getName());
+		System.out.println("성별 : "+cusList[index].getGender());
+		System.out.println("이메일 : "+cusList[index].getEmail());
+		System.out.println("출생년도 : "+cusList[index].getBirthYear());
 		System.out.println("======================================");
 	}
 	
 	public static void updateCustomerData(int index) {
 		System.out.println("---------UPDATE CUSTOMER INFO---------");
-		System.out.print("이름("+nameList[index]+") : ");
-		String name = scan.nextLine();
-		if(name.length() != 0) {
-			nameList[index] = name;
-		}
-		System.out.print("성별("+genderList[index]+") : ");
-		genderList[index] = scan.next();		
-		System.out.print("이메일("+emailList[index]+") : ");
-		emailList[index] = scan.next();
-		System.out.print("출생년도("+birthYearList[index]+") : ");
-		birthYearList[index] = scan.nextInt();
+		System.out.print("이름("+cusList[index].getName()+") : ");
+		cusList[index].setName(scan.next()); 
+		System.out.print("성별("+cusList[index].getGender()+") : ");
+		cusList[index].setGender(scan.next());		
+		System.out.print("이메일("+cusList[index].getEmail()+") : ");
+		cusList[index].setEmail(scan.next());
+		System.out.print("출생년도("+cusList[index].getBirthYear()+") : ");
+		cusList[index].setBirthYear(scan.nextInt());
 	}
 	
 	public static void deleteCustomerData(int index) {
 		for(int i=index; i<count - 1;i++) {
-			nameList[i] = nameList[i+1];
-			genderList[i] = genderList[i+1];
-			emailList[i] = emailList[i+1];
-			birthYearList[i] = birthYearList[i+1];
+			cusList[i] = cusList[i+1];
 		}
 		count--;
 	}
