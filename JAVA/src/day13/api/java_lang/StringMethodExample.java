@@ -87,12 +87,29 @@ public class StringMethodExample {
 		id_1 = id_1.trim();
 		id_2 = id_2.trim();
 		
-		
-		
 		System.out.println("after1 : "+id_1);
 		System.out.println("after2 : "+id_2);
 		
 		System.out.println("equals : "+id_1.equals(id_2));
+		
+		//11. format : 서식문자열을 이용하여 문자열을 만들어서 반환
+		str = String.format("%d:%d:%d", 13,45,94);
+		System.out.println(str);
+		
+		//12. endsWith : 지정된 문자로 끝나는지 검사 (확장자 등을 체크할 때 사용)
+		str = "오늘할일.html";
+		
+		if(str.endsWith(".txt")) {
+			System.out.println("확장자가 올바른 텍스트 파일입니다.");
+		}else if(str.endsWith(".html")||str.endsWith(".htm")) {
+			System.out.println("웹 페이지 입니다.");
+		}else {
+			System.out.println("텍스트 파일이 아닙니다.");
+		}
+		
+		
+		
+		
 	}
 
 }
