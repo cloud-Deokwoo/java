@@ -10,8 +10,9 @@ public class PolymorphismEx {
 		arrObj[1] = new Short((short)32767);
 		arrObj[2] = new Integer(2147483647);
 		arrObj[3] = new Long(2147483648L);
-//		arrObj[4] = new Float(3.5F);
+//		arrObj[4] = new Float(3.5F);  //boxing
 		arrObj[4] = 3.5F;    // autoboxing - 1.5이후 부터 추가된 기능
+		System.out.println( ((Float)arrObj[4]).floatValue() ); // unboxing
 		arrObj[5] = new Double(3.7);
 //		System.out.println( ((Double)arrObj[5]).doubleValue() ); // unboxing
 		arrObj[6] = new Boolean(true);
@@ -22,6 +23,9 @@ public class PolymorphismEx {
 		for(int i=0; i<arrObj.length;i++) {
 			System.out.println(arrObj[i]);
 		}
+		
+		int a = Integer.parseInt("100");  // 문자열 값을 기본 데이터 형으로 변경!!!
+		System.out.println(a);
 
 	}
 
