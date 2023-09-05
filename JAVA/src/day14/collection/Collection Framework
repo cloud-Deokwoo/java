@@ -112,6 +112,42 @@
  1. clear() : 저장된 모든 객체를 삭제
  2. remove(Object o) : 주어진 객체를 삭제. 
  
+
+ ## 트리구조(tree, 나무구조) - 자동정렬 기능을 가지고 있음.
+  - 그래프의 일종
+  - 여러 노드가 한 노를 가리킬 수 없는 구조
+  - 간단하게 회로가 없고, 서로 다른 두 노드를 잇는 길이 하나뿐인 그래프
+  
+  - 트리에는 최상위 노드를 루트 노드(root node 뿌리 노드)
+  - 노드 A가 노드  B를 가리킬 때 A를 B의 부모 노드(Parent node), 
+    B를 A의 자식 노드(child node)
+  - 자식 노드가 없는 노드를 잎 노드(leaf node 리프 노드)
+  - 잎 노드가 아닌 노드를 내부 노드(internal node)
+ 
+ 
+ ### Map 계열 컬렉션
+  - Map컬렉션은 키(key)와 값(value)으로 구성된 Entry 객체를 저장하는 구조를 가지고 있음.
+  - 키는 중복 저장 될 수 없지만, 값은 중복 저장이 가능함
+  
+  ## Map 계열 주요 메서드
+  - 객체 추가 기능
+  1. put(K key,V value) : 주어진 키와 값을 추가, 정상적으로 저장되면 그 값(value)를 리턴 
+ 
+  - 객체 검색 기능
+  1. containsKey(Object key) : 주어진 키가 있는지 여부를 확인
+  2. containsValue(Object value) : 주어진 값이 있는지 여부를 확인
+  3. get(Object key) : 주어진 키에 들어있는 값을 반환(리턴)
+  4. isEmpty() : 컬렉션이 비어있는지 여부를 확인
+  5. size() : 저장된 키의 총 수를 리턴
+  6. values() : 저장된 모든 값을 컬렉션에 담아서 리턴
+  7. keySet() : 저장된 모든 키를 Set객체에 담아서 리턴
+  8. entrySet() : 키와 값을 쌍으로 구성된 모든 Entry객체를 Set에 담아서 리턴
+               	반환 타입 형태 : Set<Map.Entry<K,V>>
+  
+  - 객체 삭제 기능
+  1. clear() : 모든 Entry를 삭제
+  2. remove(Object key) : 주어진 키와 일치하는 Entry객체를 삭제.
+ 
  
  
  
