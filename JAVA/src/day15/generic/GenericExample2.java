@@ -20,8 +20,41 @@ public class GenericExample2 {
 		card_wallet2.pouch2.add(new Dollar());
 		card_wallet2.pouch2.add(new Won());
 		
+		ArrayList<Integer> int_list = new ArrayList<>();
+		ArrayList<String> str_list = new ArrayList<>();
+		ArrayList<Object> apple_list = new ArrayList<>();
+		
+		str_list.add("제너릭 때문에 문자열만 들어가요!!");
+		str_list.add("이유? 이건 문자열 제너릭 컬렉션이니까요!");
+		int_list.add(100);
+		int_list.add(new Integer(20));
+		apple_list.add(new Person<String>("홍길동", 11));
+		
+		usingArrayListMethod(apple_list);
+		usingArrayListMethod(str_list);
+		usingArrayListMethod(int_list);
+		
+		usingArrayListMethod(card_wallet);
+		usingArrayListMethod(card_wallet2);
 		
 
+	}
+	
+	// 제너릭이 다른 것만으로는 오버로딩을 할 수 없다... (타입이 다른 경우는 상관없음)
+//	static void usingArrayListMethod(ArrayList<Integer> list) {
+//		System.out.println(list);
+//	}
+//	static void usingArrayListMethod(ArrayList<String> list) {
+//		System.out.println(list);
+//	}
+	
+//	// <?> : 와일드 카드. 제너릭 타입으로 오버로드를 구현하고 싶을 때 사용!
+	static void usingArrayListMethod(ArrayList<?> list) {
+		System.out.println(list);
+	}
+	
+	static void usingArrayListMethod(Wallet<? extends Card, ? extends Money> w) {
+		System.out.println(w);
 	}
 
 }

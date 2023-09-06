@@ -17,7 +17,7 @@ public class Person<E> {    // 제너릭을 이용한 클래스 정의...
 		return name;
 	}
 
-	// 클래스 선언부에서 정의되지 않은 유형 매개변수를 사용하는 방법
+	// 클래스 선언부에서 정의되지 않은 유형 매개변수를 사용하는 방
 	public <T extends Object> T test(T t) { // 제너릭을 이용한 반환타입 지정  2)
 		return t;
 	}

@@ -8,6 +8,7 @@ public class PersonExample {
 
 		Person<String> p2 = new Person<>("아빠", 46);
 		System.out.println(p2.getName());
+	
 		
 		System.out.println(p1.test(4.8)); 	// 4.8  double
 		System.out.println(p1.test("4.8")); //String
