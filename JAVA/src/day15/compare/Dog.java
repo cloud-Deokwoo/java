@@ -1,10 +1,17 @@
 package day15.compare;
 
-public class Dog {
+public class Dog implements Comparable<Dog> {
 	
 	String dogId;
 	String dogName;
 	int weight;
+	
+	//Comparable 인터페이스의 추상 메서드
+	@Override
+	public int compareTo(Dog o) {
+		// TODO Auto-generated method stub
+		return this.weight - o.weight;
+	}
 	
 	public Dog(String dogId, String dogName, int weight) {
 		super();
