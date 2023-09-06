@@ -16,6 +16,7 @@ public class ObjectEqualsExample {
 		System.out.println(d1);
 		System.out.println(d3);
 		
+		// HashSet은 동등비교를 통해서 같은 객체인지 아닌지 비교!
 		HashSet<Dog> set = new HashSet<Dog>();
 		System.out.println(set.add(d1));
 		System.out.println(set.add(d3));
