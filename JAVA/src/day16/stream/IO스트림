@@ -1,0 +1,92 @@
+### Stream 클래스 (IO - Input / Output )
+ 스트림은 데이터의 흐름(흐르는 통로)를 말함. 
+  - 데이터가 들어오면 입력 스트림
+  - 데이터가 나가면 출력 스트림
+  - 스트림 클래스는 크게 두 종류로 구분 됩니다. 
+    > 바이트 기반 스트림 - 그림,문자 등 모든 종류의 데이터를 보낼 수 있는 방식 
+    > 문자 기반 스트림 - 오직 문자만 보낼 수 있도록 특화되어 있는 방식
+    
+  스트림 클래스					Byte Streams				Character Streams
+  Source Streams			InputStream					Reader
+  Sink Streams				OutputStream				Writer
+  
+  InputStream/OutputStream은 바이트 기반 최상위 클래스로 모든 바이트 기반의 입출력 스트림은 이 클래스들을
+  상속받아서 동작하게 됩니다. 
+  상속받는 하위 클래스는 접미사로 InputStream/OutputStream이 붙어 있는 형식으로 정의되게 됩니다. 
+  
+  하위 클래스 예시...			
+   Node						Byte Stream					Character Stream 
+  -----------------------------------------------------------------------------------
+   File						FileInputStream				FileReader
+   							FileOutputStream			FileWriter
+   
+   Memory : Arrays			ByteArrayInputStream		CharArrayReader
+   							ByteArrayOutputStream		CharArrayWriter
+   
+   Memory : String			-							StringReader
+   														StringWriter
+   
+   Pipe						PipedInputStream			PipedReader
+   							PipedOutputStream			PipedWriter
+  
+  
+  ==============
+  # OutputStream 클래스
+   - 바이트 기반 출력 스트림의 최상위 클래스로 추상 클래스 입니다. 
+   
+  # 주요 메서드
+   1. write(byte b) : 출력 스트림으로 1바이트 내보냄.
+   2. write(byte[] b) : 출력 스트림으로 주어진 바이트 배열 b의 모든 바이트들을 내보냄. 
+   
+   
+ ==============
+  # InputStream 클래스
+   - 바이트 기반 입력 스트림의 최상위 클래스로 추상 클래스 입니다.
+  
+  # InputStream 사용방법
+   - InputStream (추상)클래스를 이용하여 객체 생성 -> 하위 클래스로 구현!
+   - 한글의 경우 2바이트 이기 때문에 한글이 깨지는 현상이 발생할 수 있습니다. 
+  
+  # 주요 메서드
+   1. read() : 입력 스트림으로부터 1바이트씩 읽고 읽은 바이트를 리턴
+   2. read(byte[] b) : 입력 스트림으로부터 읽은 바이트들을 매개값으로 주어진 바이트 배열에 저장하고 실제로
+                읽은 바이트 수를 리턴. 
+   3. close() 스트림을 더 이상 사용하지 않을 경우 사용한 시스템 자원을 반납
+   
+   
+ ========================================================================
+ ## 문자 기반으로 쓰여지는 클래스
+  # Writer 클래스
+   - 이 클래스는 텍스트 파일을 프로그램으로 쓸 때 사용하는 문자 기반 스트림  클래스 입니다.(추상) 
+   
+  # Writer 사용법
+   - writer 클래스를 이용하여 객체 생성. 하위 클래스로 이를 구현. 
+   - 처리 데이터가 문자 이기 때문에 Unicode 데이터를 오류없이 정상적으로 처리가 가능함. 
+  # 주요 메서드 
+   1. write(char c) : 출력 스트림으로 character 내보냄.
+   2. write(char[] c) : 출력 스트림으로 주어진 character 배열 c의 모든 char들을 내보냄. 
+   3. append(char c|charSequence cq) : write와 비슷한 동작함... 추가 작업!!!
+   
+-------------------------------------------------------------------------
+  # Reader 클래스
+   - 이 클래스는 텍스트 파일을 프로그램으로 읽을 때 사용하는 문자 기반 스트림  클래스 입니다.(추상)
+    주의) 문자 단위로 읽고 쓰기 때문에 텍스트 아닌 그림, 오디오, 비디오 등의 파일은 읽거나 쓸 수 없습니다. 
+   
+  # Reader 사용법
+   - Reader 클래스를 이용하여 객체 생성. 하위 클래스로 이를 구현. 
+   - 처리 데이터가 문자 이기 때문에 Unicode 데이터를 오류없이 정상적으로 처리가 가능함. 
+  # 주요 메서드 
+   1. read(char c) : 입력 스트림으로 character 읽어들임.
+   2. read(char[] c) : 입력 스트림으로 주어진 character 배열 c의 모든 char들을 읽어들임. 
+    
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
