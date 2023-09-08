@@ -1,0 +1,67 @@
+### 필터 스트림
+  앞서 살펴본 노드 스트림 클래스는 "노드"를 기반으로 해당 노드의 내용을 읽거나 쓰는 일을 했죠!
+ 반면 필터 스트림은 "노드 스트림"을 기반으로 해당 노드 스트림의 입출력 기능을 강화!
+ 대표적인 것이 BufferedReader와 같은 경우로 한줄씩 읽어와서 String형식으로 반환해주는 readLine()이라는
+ 메서드가 존재합니다. 
+  필터스트림 클래스 중에 Buffered***, DataInput/OutputStream, ObjectInput/OutputStream
+  
+  
+  Type				Byte Streams				Character Streams
+  ======================================================================
+  Buffering			BufferedInputStream			BufferedReader
+  					BufferedOutputStream		BufferedWriter
+  					
+  Data Conversion	DataInputStream				- 
+  					DataOutputStream
+  					
+  Filtering			FilterInputStream			FilterReader
+  					FilterOutputStream			FilterWriter
+  					
+  Converting		-							InputStreamReader
+  byte<->character								OutputStreamWriter
+  
+  Object			ObjectInputStream			-
+  Serialization		ObjectOutputStream
+  			
+  Counting			LineNumberInputStream		LineNumberReader
+  Printing			PrintStream					PrintWriter
+  
+  
+## BufferedWriter
+ - 이 클래스는 텍스트 파일을 프로그램으로 쓸때 사용하는 문자 기반 스트림. 
+ - 데이터를 읽고, 버퍼에 저장한 후 한번(*)에 쓰는 형태로 동작하기 때문에 속도 빠름!
+ - 노드 스트림을 매개변수로 받아서 처리하는 필터 스트림입니다. 
+ 
+ # 주요 매서드
+ - writer : 노드 스트림과 거의 비슷한 기능을 함!
+ - flush() : 버퍼를 비운다.
+
+ # 주의) 버퍼가 가득 찼을 때무나 출력을 해내기 때문에 flush() 호출하여 잔류하는 데이터를 모두 내보내야 함!
+
+## BufferedReader
+ - 이 클래스는 텍스트 파일을 프로그램으로 읽을 때 사용하는 문자 기반 스트림
+ - 버퍼를 이용하여 저장 후 한번에 읽는 방식으로 속도가 빠름
+ - 사용방법은 BufferedWriter와 같이 노드 스트림을 매개변수로 받음
+ 
+ # 주요 매서드
+ - Reader클래스와 거의 동일
+ - readLine() : 한 줄을 한거번에 읽어들여서 처리. 읽어들일 값이 없을 null 반환
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
