@@ -75,6 +75,26 @@
      > 자바에서만 쓸 수 있습니다. 
 
 
+### 객체 직렬화
+  # Serializable
+   - 직렬화 클래스가 구현해야 할 인터페이스
+   - 마커 인터페이스임
+   - 객체 단위로 파일에 저장할 수 있도록 함
+   - 실제로 저장되는 것은 멤버 변수 데이터만 저장되고, 생성자나 메서드 코드는 저장되지 않음
+     (받는 쪽에서 직렬화된 객체에 해당하는 클래스를 그대로 가지고 있어야 합니다.)
+     
+  # 객체 저장
+   - ObjectOutputStream의 writeObject()메서드를 이용
+   
+  # 객체 읽기
+   - ObjectInputStream의 readObject() 메서드를 이용
+   
+  ** transient : 객체 직렬화에서 제외할 변수에 선언
+  
+  # serialVersionUID
+   - 직렬화 클래스의 "구조가 변경될 경우" 불러오지 못하는 예외를 방지하기 위해서 선언
+   - private static final long serialVersionUID = 3839820798986028L;
+    
 
 
 
