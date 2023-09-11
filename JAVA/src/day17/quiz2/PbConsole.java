@@ -4,8 +4,17 @@ import java.util.Scanner;
 
 public class PbConsole {
 	
+	//폰북을 위한 객체 멤버
+	static PhoneBook book = new PhoneBook();
 	static Scanner sc = new Scanner(System.in);
 	
+	public static void doNewGroup() {
+		
+	}
+	
+	public static void doNewAddress() {
+		
+	}
 
 	public static void main(String[] args) {
 		while (true) {
@@ -33,7 +42,7 @@ public class PbConsole {
 			case 5:
 			case 6:
 			default:
-				break;
+				break; 
 			}
 		}		
 
