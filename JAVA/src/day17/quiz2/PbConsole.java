@@ -9,10 +9,31 @@ public class PbConsole {
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void doNewGroup() {
-		
+		System.out.print("Enter New Group Name : ");
+		book.addGroup(sc.nextLine());
+		book.save();
+		System.out.println();
 	}
 	
 	public static void doNewAddress() {
+		System.out.print("Enter Group Name > ");
+		String groupName = sc.nextLine();
+		System.out.print("Enter Phone Num > ");
+		String number = sc.nextLine();
+		System.out.print("Enter Name > ");
+		String name = sc.nextLine();
+		
+		AddPhMessage addMsg = book.addPhoneNo(groupName, number, name);
+		// addMsg를 통해 적절한 처리... 
+		
+		if(addMsg.type == AddPhMessage.ADD_SUCCESS) {
+			book.save();
+		}else if(addMsg.type == AddPhMessage.NOT_EXISTING_GROUP) {
+			return;
+		}else if(addMsg.type == AddPhMessage.EXISTING_NUMBER) {
+			// 수정 여부를 선택 후에 수정해서 다시 등록하기 or 안하기... 
+		}
+		
 		
 	}
 
