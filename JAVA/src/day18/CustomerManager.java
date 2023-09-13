@@ -39,6 +39,7 @@ public class CustomerManager {
 			case 'ㅈ':
 				System.out.println("고객정보를 파일에 저장합니다.");
 				//고객 정보 파일 저장처리.. writeCustomerData()
+				writeCustomerData();
 				break;
 			case 's':
 			case 'ㄴ':
@@ -182,6 +183,14 @@ public class CustomerManager {
 	}
 	
 	public static void writeCustomerData() {
+		
+		if(file.exists()) {
+			System.out.println("파일이 존재합니다.");
+		}else {
+			System.out.println("파일이 없습니다.");
+			File dir = new File(file.getParent());
+			dir.mkdirs();
+		}
 		
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
