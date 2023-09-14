@@ -13,6 +13,7 @@ public class ThreadEx6 {
 					int i=1;
 					while(true) {
 						System.out.println("t1 : "+i);
+						// sleep은 스레드를 지정된 시간동안 일시정지
 						Thread.sleep(1000);
 						i++;
 					}
@@ -29,7 +30,7 @@ public class ThreadEx6 {
 		} catch (InterruptedException e) {
 			System.out.println("메인에서 일시정지 : "+e.getMessage());
 		}
-		t1.interrupt();  //일시정지 상태 일때 interruptedException 정상 종료
+		t1.interrupt();  //일시정지 상태 일때 interruptedException 발생시켜 정상 종료
 		
 	}
 
