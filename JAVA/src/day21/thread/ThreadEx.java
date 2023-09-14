@@ -15,6 +15,8 @@ public class ThreadEx {
 		// Thread생성자에 매개변수로 전달
 		Thread t2 = new Thread(r);
 		
+		
+		
 		// Thread 실행
 		t1.start();
 		t2.start();
