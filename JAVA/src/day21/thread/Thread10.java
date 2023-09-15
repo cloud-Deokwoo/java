@@ -48,6 +48,16 @@ class SmartPhoneGame {
 				System.out.println(Thread.currentThread().getName()+" Level : "+this.level);
 				
 				// 레벨이 10의 배수가 되면 종료
+				if(this.level == 5) {
+					notifyAll();  // 현재 대기 상태인 모든 스레드를 실행 중 상태로 전환
+					//notify() : 현재 대기 상태인 스레드들 중 하나만 실행 중으로 상태 전환(직접 지정 불가)
+					try {
+						wait();   // 현재 실행 중인 스레드를 대기 상태로 전환
+					}catch (InterruptedException e) {}
+					break;
+				}
+				
+				// 레벨이 10의 배수가 되면 종료
 				if(this.level % 10 == 0) break;
 			}
 		}										// 동기화 블럭 끝
