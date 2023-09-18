@@ -24,6 +24,7 @@ public class ServerEx {
 			while(true) {
 				System.out.println("클라이언트 접속 대기");
 				Socket client = server.accept();   // 대기 중!!!
+
 				System.out.println("스레드 생성");
 				HttpThread ht = new HttpThread(client);
 				ht.start();	
