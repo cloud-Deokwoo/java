@@ -3,13 +3,25 @@ package day23.network;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.MulticastSocket;
 
-public class UDPServer {
+public class MulticastEx1 {
 
 	public static void main(String[] args) {
 		// UDP Server ... DatagramSocket, DatagramPacket
+		
+		InetAddress multicastGroup = null;
+		String multicastAddr = "230.0.0.1"; // 통신용 X
+		
+		
 		try {
-			DatagramSocket socket = new DatagramSocket(9500);  //수신
+			//서버(수신측)
+			// 멀티 캐스트 주소
+			multicastGroup = InetAddress.getByName(multicastAddr);
+			MulticastSocket socket = new MulticastSocket(9000);  //수신
+			socket.joinGroup(multicastGroup);  // 멀티 캐스트 그룹 가입!
+			// leaveGroup()를 사용하여 멀티 캐스트 그룹 해제!!
+					
 						
 			DatagramPacket inPacket;
 			byte[] inMsg = null;

@@ -4,12 +4,17 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPServer {
+public class BoardCastEx1 {
+	
+	// 브로드 캐스트 
+	// 네트워크 내에 있는 모든 장비에게 메시지를 전달하는 통신 방식... 
 
 	public static void main(String[] args) {
 		// UDP Server ... DatagramSocket, DatagramPacket
 		try {
-			DatagramSocket socket = new DatagramSocket(9500);  //수신
+			//서버(수신측)
+			DatagramSocket socket = new DatagramSocket(9000);  //수신
+			socket.setBroadcast(true);  //브로드 캐스트를 사용하기 위한 설정!!!
 						
 			DatagramPacket inPacket;
 			byte[] inMsg = null;
@@ -38,5 +43,4 @@ public class UDPServer {
 			System.out.println(e.getMessage());
 		}
 	}
-
 }
