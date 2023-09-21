@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonsDAO {
 	
@@ -73,6 +75,75 @@ public class PersonsDAO {
 		}
 		return result; // 실행 결과 반환
 	}
+	
+	// 전체 테이블 정보 출력
+	public List<PersonsVO> allPersons(){
+		List<PersonsVO> list = new ArrayList<>();
+		
+		String sql = "select * from Persons";
+		try {
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String lastName = rs.getString("lastName");
+				String firstName = rs.getString("firstName");
+				int age = rs.getInt("age");
+				String city = rs.getString("city");
+				
+				PersonsVO vo = new PersonsVO(id, firstName, lastName, age, city);
+				list.add(vo);
+			}
+			
+		} catch (SQLException sqle) {
+			System.out.println("SQL 연동 에러");
+			System.out.println(sqle.getMessage());
+		} finally {
+			try {
+				if(stmt!=null) stmt.close();
+			} catch (Exception e) {}
+		}
+		
+		return list;
+	}
+	
+	// id 입력값을 통한 정보 출력
+	public PersonsVO selectOne(int id) {
+		PersonsVO vo = null;
+		
+		String sql = "select * from Persons where id="+id;
+				
+		try {
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				vo = new PersonsVO();
+				vo.setId(rs.getInt("id"));
+				vo.setLastName(rs.getString("lastName"));
+				vo.setFirstName(rs.getString("firstName"));
+				vo.setAge(rs.getInt("age"));
+				vo.setCity(rs.getString("city"));
+			}else {
+				System.out.println("찾는 DB가 없습니다.");
+			}
+			
+		} catch (SQLException sqle) {
+			System.out.println("SQL 연동 에러");
+			System.out.println(sqle.getMessage());
+		}
+		
+		return vo;
+	}
+	
+	// 수정 메서드 구현
+	
+	// 삭제 메서드 구현
+	
+	
 	
 	
 	

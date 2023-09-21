@@ -66,5 +66,10 @@ public class PersonsVO {
 		this.city = city;
 	}
 	
+	@Override
+	public String toString() {
+		return "[id : "+id+", lastName : "+lastName+", firstName : "+firstName+
+				", age : "+age+", city : "+city+"]";
+	}
 	
 }
