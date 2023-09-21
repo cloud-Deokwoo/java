@@ -1,0 +1,113 @@
+### 필터 스트림
+  앞서 살펴본 노드 스트림 클래스는 "노드"를 기반으로 해당 노드의 내용을 읽거나 쓰는 일을 했죠!
+ 반면 필터 스트림은 "노드 스트림"을 기반으로 해당 노드 스트림의 입출력 기능을 강화!
+ 대표적인 것이 BufferedReader와 같은 경우로 한줄씩 읽어와서 String형식으로 반환해주는 readLine()이라는
+ 메서드가 존재합니다. 
+  필터스트림 클래스 중에 Buffered***, DataInput/OutputStream, ObjectInput/OutputStream
+  
+  
+  Type				Byte Streams				Character Streams
+  ======================================================================
+  Buffering			BufferedInputStream			BufferedReader
+  					BufferedOutputStream		BufferedWriter
+  					
+  Data Conversion	DataInputStream				- 
+  					DataOutputStream
+  					
+  Filtering			FilterInputStream			FilterReader
+  					FilterOutputStream			FilterWriter
+  					
+  Converting		-							InputStreamReader
+  byte<->character								OutputStreamWriter
+  
+  Object			ObjectInputStream			-
+  Serialization		ObjectOutputStream
+  			
+  Counting			LineNumberInputStream		LineNumberReader
+  Printing			PrintStream					PrintWriter
+  
+  
+## BufferedWriter
+ - 이 클래스는 텍스트 파일을 프로그램으로 쓸때 사용하는 문자 기반 스트림. 
+ - 데이터를 읽고, 버퍼에 저장한 후 한번(*)에 쓰는 형태로 동작하기 때문에 속도 빠름!
+ - 노드 스트림을 매개변수로 받아서 처리하는 필터 스트림입니다. 
+ 
+ # 주요 매서드
+ - writer : 노드 스트림과 거의 비슷한 기능을 함!
+ - flush() : 버퍼를 비운다.
+
+ # 주의) 버퍼가 가득 찼을 때무나 출력을 해내기 때문에 flush() 호출하여 잔류하는 데이터를 모두 내보내야 함!
+
+## BufferedReader
+ - 이 클래스는 텍스트 파일을 프로그램으로 읽을 때 사용하는 문자 기반 스트림
+ - 버퍼를 이용하여 저장 후 한번에 읽는 방식으로 속도가 빠름
+ - 사용방법은 BufferedWriter와 같이 노드 스트림을 매개변수로 받음
+ 
+ # 주요 매서드
+ - Reader클래스와 거의 동일
+ - readLine() : 한 줄을 한거번에 읽어들여서 처리. 읽어들일 값이 없을 null 반환
+
+
+=======================================================
+ 생각하기... 
+## 고객 정보를 파일에 저장해보자!! 
+1. byte단위로? 아니면 char단위로 저장? 
+  - byte단위로 저장한다면? FileInputStream/FileOutputStream
+  - char단위로 저장한다면? FileReader/FileWriter
+  
+2. 어떤 형식으로 저장할 것인가? (저장방법-어떤 내용으로 저장!)
+   고객 정보가 이름, 성별, 이메일, 나이가 있다고 가정했을 때,
+    
+   - 단순 텍스트를 사용하는 경우 
+     홍길동,M,hgd@test.com,30\n
+     이순신,M,lss@test.com,45\n
+     
+     데이터를 저장할 때 각 필드 구분자와 컬럼 구분자를 추가해야 하고, 정보를 잘라서 형변환해야 한다. 
+     -> 범용적이지만 불편하다(구분자를 이용한 문자열 분리와 형변환 작업이 필요함)
+
+   - DataOutputStream 클래스를 이용해서 저장하는 방법
+     > 필드 구분자와 컬럼 구분자를 추가할 필요가 없음. 
+     > 읽은 정보를 형변환 할 필요가 없다. 
+     > 단점 : Write했던 순서대로 읽어야 한다. 자바에서만 사용이 가능함. 
+     
+   - 객체 직렬화를 이용해서 저장
+     > 객체 직렬화가 가능한 클래스여야 합니다. 
+     > 자바에서만 쓸 수 있습니다. 
+
+
+### 객체 직렬화
+ - 객체 직렬화란 객체를 byte 포맷의 스트림 형식으로 변환하여 처리하는 것을 말함.
+ - 역직렬화란 byte 포맷의 스트림 데이터를 객체로 변환하는 과정 
+ 
+  # Serializable
+   - 직렬화 클래스가 구현해야 할 인터페이스
+   - 마커 인터페이스임
+   - 객체 단위로 파일에 저장할 수 있도록 함
+   - 실제로 저장되는 것은 멤버 변수 데이터만 저장되고, 생성자나 메서드 코드는 저장되지 않음
+     (받는 쪽에서 직렬화된 객체에 해당하는 클래스를 그대로 가지고 있어야 합니다.)
+     
+  # 객체 저장
+   - ObjectOutputStream의 writeObject()메서드를 이용
+   
+  # 객체 읽기
+   - ObjectInputStream의 readObject() 메서드를 이용
+   
+  ** transient : 객체 직렬화에서 제외할 변수에 선언
+  
+  # serialVersionUID
+   - 직렬화 클래스의 "구조가 변경될 경우" 불러오지 못하는 예외를 방지하기 위해서 선언
+   - private static final long serialVersionUID = 3839820798986028L;
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+### 제너릭과 형 안정성(Generic & Type Safety)
+
+  제너릭 사용법
+  - 클래스 이름<데이터 타입>, 메서드 이름
+  - 제너릭은 JDK 1.5(JDK5)부터 도입. 
+  - 이전까지는 Object유형의 객체를 받기 때문에 어떤 객체이든지 엘리먼트로 넣을 수 있었음.
+  - 하지만, 엘리먼트 사용하기 위해서 넣기전의 상태로 되돌려야 했고, 반드시 형변환이 필요했음.
+  
+  - 제너릭 표현을 통해서 컬렉션의 엘리먼트에 해당 데이터 타입만 들어가게 체크.
+  - 더 이상 형변환을 할 필요가 없게  만들고, 다양한 엘리먼트가 들어갈 때 발생할 수 있는 오류를 원천 차단. 
+  - 1.7(JDK7) 부터 제너릭 표현이 중복된 경우 뒤에 표현을 <>로 생략이 가능( Diamond operation )
+  
+ > 클래스에서 제너릭 사용!
+ public class ArrayList<E>
+ 		extends AbstractList<E>
+ 		implements List<E>, RandomAccess, Cloneable, Serializable
+  
+  클래스 선언부에 있는 <E>는 유형 매개변수라고 합니다. 객체 생성시 <String>이라고 하면 <E>자리로 들어감.
+  예) ArrayList<Integer> myList = new ArrayList<>(); 이라면, <Integer>가 <E>자리에 들어감.
+  
+  - 제너릭 클래스가 가진 변수 타입으로 E를 이용할 수 있습니다. 
+   ex)  E name;
+  - 제너릭 클래스가 가진 메서드에서도 인자의 타입이나 리턴타입으로 E를 이용할 수 있음.
+  
+  
+  
+ 
+ 
+ 
+ 
