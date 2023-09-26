@@ -1,0 +1,23 @@
+### SQLite DB
+ RDBMS(Relative Database Management System)
+ ex) MySQL, Oracle, MSSQL ... 
+ - SQLite는 파일 형식의 데이터베이스 (**)
+ - 파일 형식이기 때문에 리모트(원격)로 접속이 불가능함
+ 
+SQLite 데이터 타입 
+ - TEXT	: 문자형 (사이즈)
+ - NUMERIC : 숫자형
+ - INTEGER : 정수형(양의정수, 음의정수, 0)
+ - REAL : 실수형(정수 + 유리, 무리수)
+ - BLOB : 대용량 자료
+
+제약 조건(Constraint)
+ - Primary Key : 기본키 (not null, unique)
+ - UNIQUE : 중복X
+ - NOT NULL : 생략 불가
+ - CHECK : 제한 조건 부여
+ - DEFAULT : 기본값 설정
+
+
+# SQLitebrowser
+https://github.com/sqlitebrowser/sqlitebrowser/releases

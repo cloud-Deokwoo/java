@@ -7,7 +7,7 @@ public class DBConnectMain {
 
 	public static void main(String[] args) {
 		
-//		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 		PersonsDAO dao = new PersonsDAO();
 //		PersonsVO vo = new PersonsVO();
 //		
@@ -36,6 +36,41 @@ public class DBConnectMain {
 		for(PersonsVO vo1 : list) {
 			System.out.println(vo1);
 		}
+		
+		System.out.println("<< 수정하기 >>");
+		System.out.println("id = 13 정보 수정하기");
+		PersonsVO vo = dao.selectOne(13);
+		System.out.printf("수정할 성 입력하세요("+vo.getLastName()+") :");
+		String lastName = scan.next();
+		if (!lastName.equals("")) {
+			vo.setLastName(lastName);
+		}
+		System.out.printf("수정할 이름 입력하세요("+vo.getFirstName()+") :");
+		String firstName = scan.next();
+		if (!firstName.equals("")) {
+			vo.setFirstName(firstName);
+		}
+		System.out.printf("수정할 나이 입력하세요("+vo.getAge()+") :");
+		int age = scan.nextInt();
+		if (age != 0 && age >= 0) {
+			vo.setAge(age);
+		}
+		System.out.printf("수정할 도시 입력하세요("+vo.getCity()+") :");
+		String city = scan.next();
+		if (!city.equals("")) {
+			vo.setCity(city);;
+		}
+		
+		int result = dao.updatePersons(vo);
+		if(result != 0) {
+			System.out.println("수정 성공!");
+		}else {
+			System.out.println("수정 실패!");
+		}
+		
+		
+		
+		
 		
 		
 	}

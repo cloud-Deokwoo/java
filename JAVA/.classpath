@@ -7,5 +7,8 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="D:/Develop/Java/JAVA/mysql-connector-j-8.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Develop/Java/JAVA/sqlite-jdbc-3.43.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/Develop/Java/JAVA/mariadb-java-client-3.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Develop/Java/JAVA/ojdbc8-23.2.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
